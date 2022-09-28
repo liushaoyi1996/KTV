@@ -12,6 +12,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/canteen")
 public class CanteenController {
+
     @Autowired
     ICanteenService canteenService;
 
