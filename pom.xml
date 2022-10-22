@@ -77,6 +77,14 @@
             <version>2.2</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>4.2.3</version>
+        </dependency>
+
+
 
     </dependencies>
 
@@ -88,5 +96,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
