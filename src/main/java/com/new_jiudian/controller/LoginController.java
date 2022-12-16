@@ -29,6 +29,7 @@ public class LoginController {
             map.put("success","0");
             return map;
         }
+        //map.clear();
         map.put("success",loginService.login(map));
         return map;
     }

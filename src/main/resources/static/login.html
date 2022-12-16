@@ -10,7 +10,7 @@
     <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
     <style>
         body{
-            background-image: url("images/1.jpg");
+            background-image: url("/images/1.jpg");
         }
         .ok0{
             width: 100%;
@@ -51,7 +51,9 @@
                     return $(this).form('validate');
                 },
                 success: function(result){
-                    var result = eval('('+result+')');
+                    //var result = eval(result);
+                    result = eval('('+result+')');
+                    //alert(result.success);
                     if (result.success=="1"){
                         alert("管理员登录成功！");
                         document.cookie = result.name;
@@ -65,7 +67,8 @@
                             msg: '登录失败！请检查账户和密码是否正确'
                         });
                     }
-                }
+                },
+                dataType:'text'
             });
         }
     </script>

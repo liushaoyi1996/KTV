@@ -1,4 +1,6 @@
 spring:
+  resources:
+  static-locations: file:${web.upload-path},classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -9,3 +11,10 @@ spring:
       password: root
 mybatis:
   mapper-locations: classpath:com.new_jiudian.mapper.*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  file:
+    path:../logs/spring-boot-hello.log
+  level.org.springframework.web: DEBUG
