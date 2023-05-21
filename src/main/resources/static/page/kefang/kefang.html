@@ -73,7 +73,7 @@
         function selectBy(){
             $('#grid').datagrid('load',{
                 sum:$("#sum").val(),
-				window:$("#window").val(),
+				windows:$("#windows").val(),
 				level:$("#level").val(),
                 type:$("#type").val(),
                 money1:$("#money1").val(),
@@ -171,15 +171,15 @@
                     align : 'center',
                     formatter : function(type) {
                         if(type=="0"){
-                            return "单人间";
+                            return "小包间";
 						}else if(type=="1"){
-                            return "双人间";
+                            return "中包间";
 						}else if(type=="2"){
-                            return "大床房";
+                            return "大包间";
                         }else if(type=="3"){
-                            return "家庭房";
+                            return "超大包间";
                         }else if(type=="4"){
-                            return "套房";
+                            return "豪华包间";
                         }
                     }
                 },{
@@ -203,20 +203,20 @@
                         }
                     }
                 },{
-                    field : 'window',
+                    field : 'windows',
                     title : '窗户',
                     width : 120,
                     align : 'center',
-                    formatter : function(window) {
-                        if(window=="0"){
+                    formatter : function(windows) {
+                        if(windows=="0"){
                             return "无窗";
-                        }else if(window=="1"){
+                        }else if(windows=="1"){
                             return "有窗";
-                        }else if(window=="2"){
+                        }else if(windows=="2"){
                             return "有窗（标准）";
-                        }else if(window=="3"){
+                        }else if(windows=="3"){
                             return "有窗（大窗）";
-                        }else if(window=="4"){
+                        }else if(windows=="4"){
                             return "有窗（落地）";
                         }
                     }
@@ -239,11 +239,11 @@
                     }
                 },{
                     field : 'size',
-                    title : '房间大小',
+                    title : '容纳人数',
                     width : 120,
                     align : 'center',
                     formatter : function(size) {
-                        return size+"㎡";
+                        return size+"人";
                     }
                 }
 
@@ -281,7 +281,7 @@
 			<option value="4">豪华间</option>
 		</select>
 		窗户：
-		<select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" id="window" style="width:120px">
+		<select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" id="windows" style="width:120px">
 			<option value=""></option>
 			<option value="0">无窗</option>
 			<option value="1">暗窗</option>
@@ -307,11 +307,11 @@
 		</div>
 		<div class="fitem">
             <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="type" label="房间类型:" style="width:350px">
-                <option value="0">单人间</option>
-                <option value="1">双人间</option>
-                <option value="2">大床房</option>
-                <option value="3">家庭房</option>
-                <option value="4">套房</option>
+				<option value="0">小包间</option>
+				<option value="1">中包间</option>
+				<option value="2">大包间</option>
+				<option value="3">超大包间</option>
+				<option value="4">豪华包间</option>
 				<option value=""></option>
             </select>
 		</div>
@@ -326,7 +326,7 @@
             </select>
         </div>
         <div class="fitem">
-            <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="window" label="窗户:" style="width:350px">
+            <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="windows" label="窗户:" style="width:350px">
                 <option value="0">无窗</option>
                 <option value="1">暗窗</option>
                 <option value="2">有窗（标准）</option>
@@ -366,11 +366,11 @@
 			</div>
             <div class="fitem">
                 <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="type" label="房间类型:" style="width:350px">
-                    <option value="0">单人间</option>
-                    <option value="1">双人间</option>
-                    <option value="2">大床房</option>
-                    <option value="3">家庭房</option>
-                    <option value="4">套房</option>
+                    <option value="0">小包间</option>
+                    <option value="1">中包间</option>
+                    <option value="2">大包间</option>
+                    <option value="3">超大包间</option>
+                    <option value="4">豪华包间</option>
 					<option value=""></option>
                 </select>
             </div>
@@ -385,7 +385,7 @@
                 </select>
             </div>
             <div class="fitem">
-                <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="window" label="窗户:" style="width:350px">
+                <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="windows" label="窗户:" style="width:350px">
                     <option value="0">无窗</option>
                     <option value="1">暗窗</option>
                     <option value="2">有窗（标准）</option>

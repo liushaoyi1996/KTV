@@ -17,13 +17,13 @@ public class KefangController {
 
     @RequestMapping("/select")
     @ResponseBody
-    public Map select(int page, int rows,String sum,String type,String window,String level,String money1,String money2){
+    public Map select(int page, int rows,String sum,String type,String windows,String level,String money1,String money2){
         Map map=new HashMap();
         map.put("pageSize",page);
         map.put("rows",rows);
         map.put("sum",sum);
         map.put("type",type);
-        map.put("window",window);
+        map.put("windows",windows);
         map.put("level",level);
         map.put("money1",money1);
         map.put("money2",money2);
@@ -47,11 +47,11 @@ public class KefangController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public Map add(String sum,String type,String window,String clean,String level,String size,String money){
+    public Map add(String sum,String type,String windows,String clean,String level,String size,String money){
         Map<String,String> map=new HashMap<String,String>();
         map.put("sum",sum);
         map.put("type",type);
-        map.put("window",window);
+        map.put("windows",windows);
         map.put("clean",clean);
         map.put("level",level);
         map.put("size",size);
@@ -74,12 +74,12 @@ public class KefangController {
 
     @RequestMapping("/edit")
     @ResponseBody
-    public Map edit(String id,String sum,String type,String window,String clean,String level,String size,String money){
+    public Map edit(String id,String sum,String type,String windows,String clean,String level,String size,String money){
         Map<String,String> map=new HashMap<String,String>();
         map.put("id",id);
         map.put("sum",sum);
         map.put("type",type);
-        map.put("window",window);
+        map.put("windows",windows);
         map.put("clean",clean);
         map.put("level",level);
         map.put("size",size);
