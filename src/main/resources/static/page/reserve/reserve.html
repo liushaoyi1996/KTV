@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>酒店管理系统</title>
+	<title>KTV管理系统</title>
 	<link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css">
 	<script type="text/javascript" src="../../easyui/jquery.min.js"></script>
@@ -140,10 +140,10 @@
             }
         }
 
-        function ruzhu(sid){
-			$.messager.confirm('Confirm','确定入住吗？',function(r){
+        function kaitong(sid){
+			$.messager.confirm('Confirm','确定开通吗？',function(r){
 				if (r){
-					$.post('http://localhost:8080/indent/ruzhu',{id:sid},function(result){
+					$.post('http://localhost:8080/indent/kaitong',{id:sid},function(result){
 						if (result.success=="1"){
 							$.messager.show({    // show error message
 								title: '提示',
@@ -189,7 +189,7 @@
                     hidden:true
                 }, {
                     field : 'sum',
-                    title : '房间号',
+                    title : '包间号',
                     width : 100,
                     align : 'center'
                 },{
@@ -223,36 +223,6 @@
                         return year+"-"+month+"-"+day;
                     }
                 },{
-                    field : 'check_day1',
-                    title : '入住日期',
-                    width : 100,
-                    align : 'center',
-                    formatter: function (birthday) {
-                        if(birthday==null){
-                            return "";
-                        }
-                        var myDate=new Date(birthday);
-                        var year=myDate.getFullYear();
-                        var month=myDate.getMonth()+1;
-                        var day=myDate.getDate();
-                        return year+"-"+month+"-"+day;
-                    }
-                },{
-                    field : 'check_day2',
-                    title : '离开日期',
-                    width : 100,
-                    align : 'center',
-                    formatter: function (birthday) {
-                        if(birthday==null){
-                            return "";
-                        }
-                        var myDate=new Date(birthday);
-                        var year=myDate.getFullYear();
-                        var month=myDate.getMonth()+1;
-                        var day=myDate.getDate();
-                        return year+"-"+month+"-"+day;
-                    }
-                },{
                     field : 'money',
                     title : '定金',
                     width : 100,
@@ -268,9 +238,9 @@
                     align : 'center',
                     formatter: function (status) {
                         if(status==1){
-                            return "已入住";
+                            return "已开通";
                         }else{
-                            return "未入住";
+                            return "未开通";
 						}
                     }
                 },{
@@ -279,7 +249,7 @@
                     width : 100,
                     align : 'center',
                     formatter: function (sid) {
-						return "<a href='###' onclick='ruzhu("+sid+")' style='text-decoration: none;'>入住</a></div>";
+						return "<a href='###' onclick='kaitong("+sid+")' style='text-decoration: none;'>开通包房</a></div>";
                     }
                     }
 
@@ -298,7 +268,7 @@
 		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newPerson()">添加</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editPerson()">修改</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyPerson()">删除</a><br>
-		房间号：<input class="easyui-textbox" id="sum" style="width:100px">
+		预定包间<input class="easyui-textbox" id="sum" style="width:100px">
 		身份证号：<input class="easyui-textbox" id="number" style="width:150px">
 		姓名：<input class="easyui-textbox" id="name" style="width:100px">
 		手机号：<input class="easyui-textbox" id="phone" style="width:100px">
@@ -315,7 +285,7 @@
 	<div id="dlg" class="easyui-dialog" style="width:600px;height:600px;padding:30px 60px" closed="true" buttons="#dlg-buttons">
 		<form id="fm" class="easyui-form" method="post" data-options="novalidate:true">
 			<div class="fitem">
-				<input class="easyui-textbox" name="sum" style="width:350px"  data-options="label:'房间号:',required:true">
+				<input class="easyui-textbox" name="sum" style="width:350px"  data-options="validType:'length[4,4]',label:'预定包间:',required:true">
 			</div>
 			<div class="fitem" style="display: none">
 				<input class="easyui-textbox" name="status" style="width:350px"  data-options="label:'status:'" type="hidden">
@@ -331,12 +301,6 @@
 			</div>
 			<div class="fitem">
 				<input class="easyui-datetimebox" name="reserve_day" style="width:350px"  data-options="label:'预定日期:'">
-			</div>
-			<div class="fitem">
-				<input class="easyui-datetimebox" name="check_day1" style="width:350px"  data-options="label:'入住日期:'">
-			</div>
-			<div class="fitem">
-				<input class="easyui-datetimebox" name="check_day2" style="width:350px"  data-options="label:'离开日期:'">
 			</div>
 			<div class="fitem">
 				<input class="easyui-textbox num" name="money" style="width:350px"  data-options="label:'定金:',required:true">
@@ -358,7 +322,7 @@
 				<input class="easyui-textbox" name="status" style="width:350px"  data-options="label:'status:'" type="hidden">
 			</div>
 			<div class="fitem">
-				<input class="easyui-textbox" name="sum" style="width:350px"  data-options="label:'房间号:',required:true">
+				<input class="easyui-textbox" name="sum" style="width:350px"  data-options="label:'包间号:',required:true">
 			</div>
 			<div class="fitem">
 				<input class="easyui-textbox" name="name" style="width:350px"  data-options="label:'顾客姓名:',required:true">
@@ -371,12 +335,6 @@
 			</div>
 			<div class="fitem">
 				<input class="easyui-datetimebox" name="reserve_day" style="width:350px"  data-options="label:'预定日期:'">
-			</div>
-			<div class="fitem">
-				<input class="easyui-datetimebox" name="check_day1" style="width:350px"  data-options="label:'入住日期:'">
-			</div>
-			<div class="fitem">
-				<input class="easyui-datetimebox" name="check_day2" style="width:350px"  data-options="label:'离开日期:'">
 			</div>
 			<div class="fitem">
 				<input class="easyui-textbox num" name="money" style="width:350px"  data-options="label:'定金:',required:true">

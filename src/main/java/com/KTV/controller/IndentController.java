@@ -19,7 +19,7 @@ public class IndentController {
 
     @RequestMapping("/select")
     @ResponseBody
-    public Map select(int page, int rows,String sum,String name,String number,String phone,String reserve_day,String check_day1,String check_day2,String money){
+    public Map select(int page, int rows,String sum,String name,String number,String phone,String reserve_day,String money){
         Map map=new HashMap();
         map.put("pageSize",page);
         map.put("rows",rows);
@@ -28,8 +28,6 @@ public class IndentController {
         map.put("number",number);
         map.put("phone",phone);
         map.put("reserve_day",reserve_day);
-        map.put("check_day1",check_day1);
-        map.put("check_day2",check_day2);
         map.put("money",money);
         System.out.println("++++");
         return indentService.select(map);
@@ -51,15 +49,13 @@ public class IndentController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public Map add(String sum,String name,String number,String phone,String reserve_day,String check_day1,String check_day2,String money){
+    public Map add(String sum,String name,String number,String phone,String reserve_day,String money){
         Map<String,String> map=new HashMap<String,String>();
         map.put("sum",sum);
         map.put("name",name);
         map.put("number",number);
         map.put("phone",phone);
         map.put("reserve_day",reserve_day);
-        map.put("check_day1",check_day1);
-        map.put("check_day2",check_day2);
         map.put("money",money);
         int i=indentService.add(map);
         if(i==1){
@@ -72,7 +68,7 @@ public class IndentController {
 
     @RequestMapping("/edit")
     @ResponseBody
-    public Map edit(String id,String sum,String name,String number,String phone,String reserve_day,String check_day1,String check_day2,String money){
+    public Map edit(String id,String sum,String name,String number,String phone,String reserve_day,String money){
         Map<String,String> map=new HashMap<String,String>();
         map.put("id",id);
         map.put("sum",sum);
@@ -80,8 +76,6 @@ public class IndentController {
         map.put("number",number);
         map.put("phone",phone);
         map.put("reserve_day",reserve_day);
-        map.put("check_day1",check_day1);
-        map.put("check_day2",check_day2);
         map.put("money",money);
         int i=indentService.edit(map);
         if(i==1){
@@ -92,15 +86,15 @@ public class IndentController {
         return map;
     }
 
-    @RequestMapping("/ruzhu")
+    @RequestMapping("/kaitong")
     @ResponseBody
-    public Map ruzhu(String id){
+    public Map kaitong(String id){
         Map<String,String> map=new HashMap<String,String>();
 
         Map<String,String> map1 = reserveService.selectByid(id);
         System.out.println();
         if(map1.get("status").equals("1")){
-            map.put("errorMsg","该订单已入住！");
+            map.put("errorMsg","该订单已经开通！");
             return map;
         }
         int i = indentService.add(map1);

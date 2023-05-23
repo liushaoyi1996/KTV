@@ -68,7 +68,7 @@
 <div data-options="region:'north',border:false,split:false" style="height:40px; overflow:hidden">
     <div class="define-head">
         <div class="define-logo">
-            <div id="LoginTopLine">KTV管理系统-后台</div>
+            <div id="LoginTopLine">KTV管理系统</div>
             <div id="xinxi"> <div id="gly">管理员：</div><div id="user"></div> </div>
         </div>
     </div>
@@ -119,15 +119,18 @@
     $(function () {
         $('#LeftMenu').sidemenu({
             data: [{
-                text: '客房部管理',
+                text: 'KTV管理',
                 iconCls: 'icon-more',
                 state: 'open',
                 children: [{
                     text: '包间信息管理',
                     url: 'page/kefang/kefang.html',
                 }, {
-                    text: '员工信息管理（客）',
+                    text: '员工信息管理',
                     url: 'page/person/person.html',
+                }, {
+                    text: '菜单信息管理',
+                    url: 'page/carte/carte.html',
                 }, {
                     text: '顾客信息管理',
                     url: 'page/client/client.html',
@@ -138,39 +141,37 @@
                     text: '订单信息管理',
                     url: 'page/indent/indent.html',
                     children: [{
-                        text: '订单信息一览（客）',
+                        text: '订单信息一览',
                         url: 'page/indent/indent.html',
                     }, {
-                        text: '立即订购入住',
+                        text: '立即开通包间',
                         url: 'page/indent/liji.html',
                     }]
 
                 }]
-            }, {
-                text: '餐饮部管理',
-                iconCls: 'icon-more',
-                state: 'open',
-                children: [{
-                    text: '菜单信息管理',
-                    url: 'page/carte/carte.html',
-                }, {
-                    text: '员工信息管理(餐)',
-                    url: 'page/person/person1.html',
-                },{
-                    text: '餐厅信息管理',
-                    url: 'page/canteen/canteen.html',
-                },{
-                    text: '订单信息管理',
-                    url: 'page/indent/indent.html',
-                    children: [{
-                        text: '订单信息一览(餐)',
-                        url: 'page/dingdan/dingdan.html',
-                    }, {
-                        text: '立即订购点单',
-                        url: 'page/dingdan/liji.html',
-                    }]
-                },]
             }],
+            // , {
+            //     text: '餐饮部管理',
+            //     iconCls: 'icon-more',
+            //     state: 'open',
+            //     children: [ {
+            //         text: '员工信息管理(餐)',
+            //         url: 'page/person/person1.html',
+            //     },{
+            //         text: '餐厅信息管理',
+            //         url: 'page/canteen/canteen.html',
+            //     },{
+            //         text: '订单信息管理',
+            //         url: 'page/indent/indent.html',
+            //         children: [{
+            //             text: '订单信息一览(餐)',
+            //             url: 'page/dingdan/dingdan.html',
+            //         }, {
+            //             text: '立即订购点单',
+            //             url: 'page/dingdan/liji.html',
+            //         }]
+            //     },]
+            // }],
             onSelect: onSideMenuSelect,
             border: false
         });

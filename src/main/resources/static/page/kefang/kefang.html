@@ -27,7 +27,7 @@
             }
 		}
         function newKefang(){
-            $('#dlg').dialog('open').dialog('setTitle','添加客房');
+            $('#dlg').dialog('open').dialog('setTitle','添加包间');
             $('#fm').form('clear');
             url = 'http://localhost:8080/kefang/add';
             var row = $('#dg').datagrid('getSelected');
@@ -36,7 +36,7 @@
         function editKefang() {
             var row = $('#grid').datagrid('getSelected');
             if (row){
-                $('#dlg1').dialog('open').dialog('setTitle','修改客房信息');
+                $('#dlg1').dialog('open').dialog('setTitle','修改包间信息');
                 $('#fm1').form('load',row);
                 $('#grid').datagrid('clearSelections');
             }else{
@@ -161,12 +161,12 @@
                     hidden:true
                 }, {
                     field : 'sum',
-                    title : '房间号',
+                    title : '包间号',
                     width : 120,
                     align : 'center'
                 },{
                     field : 'type',
-                    title : '房间类型',
+                    title : '包间类型',
                     width : 120,
                     align : 'center',
                     formatter : function(type) {
@@ -261,8 +261,8 @@
 		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newKefang()">添加</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editKefang()">修改</a>
         <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyKefang()">删除</a><br>
-		房间号：<input class="easyui-textbox" id="sum" style="width:100px">
-		房间类型：
+		包间号：<input class="easyui-textbox" id="sum" style="width:100px">
+		包间类型：
 		<select class="easyui-combobox" editable="false" id="type" data-options="panelHeight:'auto'"   style="width:120px">
 			<option value=""></option>
 			<option value="0">单人间</option>
@@ -303,10 +303,10 @@
 	<div id="dlg" class="easyui-dialog" style="width:600px;height:500px;padding:30px 60px" closed="true" buttons="#dlg-buttons">
 	<form id="fm" class="easyui-form" method="post" data-options="novalidate:true">
 		<div class="fitem">
-			<input class="easyui-textbox" name="sum" style="width:350px"  data-options="validType:'length[4,4]',label:'房间号:',required:true">
+			<input class="easyui-textbox" name="sum" style="width:350px"  data-options="validType:'length[4,4]',label:'包间号:',required:true">
 		</div>
 		<div class="fitem">
-            <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="type" label="房间类型:" style="width:350px">
+            <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="type" label="包间类型:" style="width:350px">
 				<option value="0">小包间</option>
 				<option value="1">中包间</option>
 				<option value="2">大包间</option>
@@ -362,10 +362,10 @@
                 <input class="easyui-textbox" name="id" style="width:350px"  data-options="label:'id:'" type="hidden">
             </div>
 			<div class="fitem">
-				<input class="easyui-textbox" name="sum" style="width:350px"  data-options="validType:'length[4,4]',label:'房间号:',required:true">
+				<input class="easyui-textbox" name="sum" style="width:350px"  data-options="validType:'length[4,4]',label:'包间号:',required:true">
 			</div>
             <div class="fitem">
-                <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="type" label="房间类型:" style="width:350px">
+                <select class="easyui-combobox" editable="false" data-options="panelHeight:'auto'" name="type" label="包间类型:" style="width:350px">
                     <option value="0">小包间</option>
                     <option value="1">中包间</option>
                     <option value="2">大包间</option>

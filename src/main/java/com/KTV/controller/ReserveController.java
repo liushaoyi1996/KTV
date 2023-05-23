@@ -18,7 +18,7 @@ public class ReserveController {
 
     @RequestMapping("/select")
     @ResponseBody
-    public Map select(int page, int rows,String sum,String name,String number,String phone,String reserve_day,String check_day1,String check_day2,String money){
+    public Map select(int page, int rows,String sum,String name,String number,String phone,String reserve_day,String money){
         Map map=new HashMap();
         map.put("pageSize",page);
         map.put("rows",rows);
@@ -27,8 +27,6 @@ public class ReserveController {
         map.put("number",number);
         map.put("phone",phone);
         map.put("reserve_day",reserve_day);
-        map.put("check_day1",check_day1);
-        map.put("check_day2",check_day2);
         map.put("money",money);
         return iReserveService.select(map);
     }
@@ -49,15 +47,13 @@ public class ReserveController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public Map add(String sum,String name,String number,String phone,String reserve_day,String check_day1,String check_day2,String money){
+    public Map add(String sum,String name,String number,String phone,String reserve_day,String money){
         Map<String,String> map=new HashMap<String,String>();
         map.put("sum",sum);
         map.put("name",name);
         map.put("number",number);
         map.put("phone",phone);
         map.put("reserve_day",reserve_day);
-        map.put("check_day1",check_day1);
-        map.put("check_day2",check_day2);
         map.put("money",money);
         int i=iReserveService.add(map);
         if(i==1){
@@ -70,7 +66,7 @@ public class ReserveController {
 
     @RequestMapping("/edit")
     @ResponseBody
-    public Map edit(String id,String sum,String name,String number,String phone,String reserve_day,String check_day1,String check_day2,String money,String status){
+    public Map edit(String id,String sum,String name,String number,String phone,String reserve_day,String money,String status){
         Map<String,String> map=new HashMap<String,String>();
         map.put("id",id);
         map.put("sum",sum);
@@ -78,8 +74,6 @@ public class ReserveController {
         map.put("number",number);
         map.put("phone",phone);
         map.put("reserve_day",reserve_day);
-        map.put("check_day1",check_day1);
-        map.put("check_day2",check_day2);
         map.put("money",money);
         map.put("status",status);
         int i=iReserveService.edit(map);

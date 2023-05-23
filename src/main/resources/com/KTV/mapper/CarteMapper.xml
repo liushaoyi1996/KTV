@@ -18,7 +18,7 @@
 				AND type=${type}
 			</if>
 			<if test="taste!= null and taste !=''">
-				AND taste=${taste}
+				AND taste='${taste}'
 			</if>
 		</where>
 	</select>

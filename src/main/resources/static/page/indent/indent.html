@@ -133,37 +133,8 @@
                         var day=myDate.getDate();
                         return year+"-"+month+"-"+day;
                     }
-                },{
-                    field : 'check_day1',
-                    title : '入住日期',
-                    width : 100,
-                    align : 'center',
-                    formatter: function (birthday) {
-                        if(birthday==null){
-                            return "";
-                        }
-                        var myDate=new Date(birthday);
-                        var year=myDate.getFullYear();
-                        var month=myDate.getMonth()+1;
-                        var day=myDate.getDate();
-                        return year+"-"+month+"-"+day;
-                    }
-                },{
-                    field : 'check_day2',
-                    title : '离开日期',
-                    width : 100,
-                    align : 'center',
-                    formatter: function (birthday) {
-                        if(birthday==null){
-                            return "";
-                        }
-                        var myDate=new Date(birthday);
-                        var year=myDate.getFullYear();
-                        var month=myDate.getMonth()+1;
-                        var day=myDate.getDate();
-                        return year+"-"+month+"-"+day;
-                    }
-                },{
+                },
+					,{
                     field : 'money',
                     title : '定金',
                     width : 100,
