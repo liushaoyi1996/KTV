@@ -35,44 +35,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="birthday1!= null and birthday1 !=''">
 				AND birthday   <![CDATA[ <= ]]> STR_TO_DATE('${birthday1}', '%Y-%m-%d')
 			</if>
-			AND branch='0'
-		</where>
-	</select>
-
-	<select id="selectByCY" resultType="java.util.Map" parameterType="java.util.Map">
-		select * from person
-		<where>
-			<if test="name!= null and name !=''">
-				AND name=${name}
-			</if>
-			<if test="sex!= null and sex !=''">
-				AND sex=${sex}
-			</if>
-			<if test="year1!= null and year1 !=''">
-				AND year <![CDATA[ >= ]]>${year1}
-			</if>
-			<if test="year2!= null and year2 !=''">
-				AND year <![CDATA[ <= ]]>${year2}
-			</if>
-			<if test="number!= null and number !=''">
-				AND number=${number}
-			</if>
-			<if test="type!= null and type !=''">
-				AND type=${type}
-			</if>
-			<if test="branch!= null and branch !=''">
-
-			</if>
-			<if test="phone!= null and phone !=''">
-				AND phone=${phone}
-			</if>
-			<if test="birthday0!= null and birthday0 !=''">
-				AND birthday <![CDATA[ >= ]]> STR_TO_DATE('${birthday0}', '%Y-%m-%d')
-			</if>
-			<if test="birthday1!= null and birthday1 !=''">
-				AND birthday   <![CDATA[ <= ]]> STR_TO_DATE('${birthday1}', '%Y-%m-%d')
-			</if>
-			AND branch='1'
 		</where>
 	</select>
 
