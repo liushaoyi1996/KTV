@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
     <insert id="add" parameterType="java.util.Map">
-        INSERT INTO indent(id,sum,name,number,phone,reserve_day,money) VALUE(DEFAULT,'${sum}','${name}','${number}','${phone}',#{reserve_day},'${money}');
+        INSERT INTO indent(id,sum,name,number,phone,reserve_day,creat_time,money) VALUE(DEFAULT,'${sum}','${name}','${number}','${phone}',#{reserve_day},now(),'${money}');
     </insert>
 
 

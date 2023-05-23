@@ -202,12 +202,17 @@
 						}
                     }
                 },{
-					field : 'sid',
+					field : 's_sum',
 					title : '操作',
-					width : 100,
+					width : 300,
 					align : 'center',
 					formatter: function (sum) {
-						return "<a href='###' onclick='bofang("+sum+")' style='text-decoration: none;'>播放</a></div>";
+						//alert(sum)
+						var i='../../music/'+sum+'.ogg';
+						// return "<a href='###' onclick='bofang("+sum+")' style='text-decoration: none;'>播放</a></div>";
+						return "<audio src="+i+" controls></audio>";
+
+
 					}
 				}
 
@@ -263,6 +268,8 @@
 		<div class="fitem">
 			<input class="easyui-textbox" name="musicer" style="width:350px" data-options="label:'歌手:'">
 		</div>
+
+		<input class="easyui-filebox" name="fName" style="width:300px" buttonText="上传文件" data-options="label:'歌曲文件:'">
 	</form>
 </div>
 
@@ -300,7 +307,7 @@
 		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg1').dialog('close')" style="width:90px">取消</a>
 	</div>
 
-
+<!-- 详细播放信息，暂时不用 -->
 	<div id="dlg2" class="easyui-dialog" style="width:600px;height:500px;padding:30px 60px" closed="true" buttons="#dlg2-buttons">
 		<form id="fm2" class="easyui-form" method="post" data-options="novalidate:true">
 		<div class="fitem">

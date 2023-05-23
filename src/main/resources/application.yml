@@ -18,3 +18,6 @@ logging:
   file:
     path:../logs/spring-boot-hello.log
   level.org.springframework.web: DEBUG
+#文件上传目录
+file.upload.url: E:/test
+

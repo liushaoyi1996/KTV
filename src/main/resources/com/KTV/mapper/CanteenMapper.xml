@@ -6,7 +6,7 @@
 <mapper namespace="com.KTV.mapper.CanteenMapper">
 
 	<select id="select" resultType="java.util.Map" parameterType="java.util.Map">
-		select * from canteen
+		select *,sum as s_sum  from canteen
 		<where>
 			<if test="sum!= null and sum !=''">
 				AND sum=${sum}

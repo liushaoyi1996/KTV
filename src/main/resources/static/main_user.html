@@ -69,12 +69,8 @@
     <div class="define-head">
         <div class="define-logo">
             <div id="LoginTopLine">KTV管理系统</div>
-            <div id="xinxi">
-                <div id="gly">用户：</div>
-                <div id="user"></div>
-                <div id="tc" onclick="tc()">退出</div>
-            </div>
-
+            <div id="xinxi"> <div id="gly">管理员：</div><div id="user"></div> </div>
+            <div id="tc" onclick="tc()">退出</div>
         </div>
     </div>
 </div>
@@ -123,6 +119,9 @@
             window.location="http://localhost:8080/";
         }
     }
+    function tc(){
+        window.location="http://localhost:8080/login.html";
+    }
     $(function () {
         $('#LeftMenu').sidemenu({
             data: [{
@@ -130,18 +129,6 @@
                 iconCls: 'icon-more',
                 state: 'open',
                 children: [{
-                    text: '歌曲信息管理',
-                    url: 'page/music/music.html',
-                },{
-                    text: '包间信息管理',
-                    url: 'page/kefang/kefang.html',
-                }, {
-                    text: '员工信息管理',
-                    url: 'page/person/person.html',
-                }, {
-                    text: '菜单信息管理',
-                    url: 'page/carte/carte.html',
-                }, {
                     text: '顾客信息管理',
                     url: 'page/client/client.html',
                 }, {
@@ -160,28 +147,6 @@
 
                 }]
             }],
-            // , {
-            //     text: '餐饮部管理',
-            //     iconCls: 'icon-more',
-            //     state: 'open',
-            //     children: [ {
-            //         text: '员工信息管理(餐)',
-            //         url: 'page/person/person1.html',
-            //     },{
-            //         text: '歌曲信息管理',
-            //         url: 'page/canteen/music.html',
-            //     },{
-            //         text: '订单信息管理',
-            //         url: 'page/indent/indent.html',
-            //         children: [{
-            //             text: '订单信息一览(餐)',
-            //             url: 'page/dingdan/dingdan.html',
-            //         }, {
-            //             text: '立即订购点单',
-            //             url: 'page/dingdan/liji.html',
-            //         }]
-            //     },]
-            // }],
             onSelect: onSideMenuSelect,
             border: false
         });
@@ -240,9 +205,7 @@
             changeMenuSelect(menus, opts, tab[0].id);
         }
     }
-    function tc(){
-        window.location="http://localhost:8080/login.html";
-    }
+
     function onWestCollapse() {
         var opts = $('#LeftMenu').sidemenu('options');
         if (opts.collapsed != 'collapse') {

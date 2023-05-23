@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +47,8 @@ public class CanteenController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public Map add(String sum,String type,String music_name,String musicer){
+    public Map add(String sum, String type, String music_name, String musicer, MultipartFile fName){
+        System.out.println(fName);
         Map<String,String> map=new HashMap<String,String>();
         map.put("sum",sum);
         map.put("type",type);
@@ -82,4 +84,5 @@ public class CanteenController {
         }
         return map;
     }
-}
+
+   }

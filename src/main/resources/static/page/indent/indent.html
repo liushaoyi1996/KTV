@@ -119,24 +119,28 @@
                     width : 120,
                     align : 'center'
                 },{
-                    field : 'reserve_day',
-                    title : '预定日期',
-                    width : 100,
-                    align : 'center',
-                    formatter: function (birthday) {
-                        if(birthday==null){
-                            return "";
-                        }
-                        var myDate=new Date(birthday);
-                        var year=myDate.getFullYear();
-                        var month=myDate.getMonth()+1;
-                        var day=myDate.getDate();
-                        return year+"-"+month+"-"+day;
-                    }
-                },
-					,{
+					field : 'reserve_day',
+					title : '预定日期',
+					width : 100,
+					align : 'center',
+					formatter: function (birthday) {
+						if(birthday==null){
+							return "";
+						}
+						var myDate=new Date(birthday);
+						var year=myDate.getFullYear();
+						var month=myDate.getMonth()+1;
+						var day=myDate.getDate();
+						return year+"-"+month+"-"+day;
+					}
+				},{
+					field : 'creat_time',
+					title : '订单创建日期',
+					width : 100,
+					align : 'center'
+				},{
                     field : 'money',
-                    title : '定金',
+                    title : '价格',
                     width : 100,
                     align : 'center',
                     formatter: function (id) {
@@ -163,7 +167,7 @@
 		姓名：<input class="easyui-textbox" id="name" style="width:100px">
 		手机号：<input class="easyui-textbox" id="phone" style="width:100px">
 		预定日期：<input class="easyui-datebox" id="reserve_day" style="width:180px">
-		定金：<input class="easyui-textbox" id="money" style="width:100px">
+		价格：<input class="easyui-textbox" id="money" style="width:100px">
 		<a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="selectBy()">查询</a>
 	</div>
 
