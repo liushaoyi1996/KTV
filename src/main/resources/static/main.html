@@ -110,8 +110,10 @@
 <script type="text/javascript">
     window.onload = function(){
         var user = document.cookie;
+        var userList = user.split(';');
+        var num=userList.length-1;
         if(user){
-            $('#user').text(user);
+            $('#user').text(userList[num]);
         }else{
             window.location="http://localhost:8080/";
         }
