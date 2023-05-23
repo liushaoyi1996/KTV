@@ -14,17 +14,11 @@
 			<if test="type!= null and type !=''">
 				AND type=${type}
 			</if>
-			<if test="level!= null and level !=''">
-				AND level=${level}
+			<if test="music_name!= null and music_name !=''">
+				AND music_name=${music_name}
 			</if>
-			<if test="style!= null and style !=''">
-				AND style=${style}
-			</if>
-			<if test="size!= null and size !=''">
-				AND size=${size}
-			</if>
-			<if test="ps!= null and ps !=''">
-				AND ps=${ps}
+			<if test="musicer!= null and musicer !=''">
+				AND musicer=${musicer}
 			</if>
 		</where>
 		order by sum
@@ -40,7 +34,7 @@
 	</select>
 
 	<update id="edit"  parameterType="java.util.Map">
-		update canteen set sum=#{sum},type=#{type},level=#{level},style=#{style},size=#{size},ps=#{ps} where id=#{id}
+		update canteen set sum=#{sum},type=#{type},music_name=#{music_name},musicer=#{musicer} where id=#{id}
 	</update>
 
 	<delete id="delete" parameterType="java.util.Map">
@@ -48,6 +42,6 @@
 	</delete>
 
 	<insert id="add" parameterType="java.util.Map">
-        INSERT INTO canteen(id,sum,type,level,style,size,ps) VALUE(DEFAULT,#{sum},#{type},#{level},#{style},#{size},#{ps});
+        INSERT INTO canteen(id,sum,type,music_name,musicer) VALUE(DEFAULT,#{sum},#{type},#{music_name},#{musicer});
     </insert>
 </mapper>

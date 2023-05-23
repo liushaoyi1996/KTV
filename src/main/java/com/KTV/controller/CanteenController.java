@@ -18,16 +18,14 @@ public class CanteenController {
 
     @RequestMapping("/select")
     @ResponseBody
-    public Map select(int page, int rows,String sum,String type,String level,String style,String size,String ps){
+    public Map select(int page, int rows,String sum,String type,String music_name,String musicer){
         Map map=new HashMap();
         map.put("pageSize",page);
         map.put("rows",rows);
         map.put("sum",sum);
         map.put("type",type);
-        map.put("level",level);
-        map.put("style",style);
-        map.put("size",size);
-        map.put("ps",ps);
+        map.put("music_name",music_name);
+        map.put("musicer",musicer);
         //return JSON.toJSONString(list);
         return canteenService.select(map);
     }
@@ -48,14 +46,12 @@ public class CanteenController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public Map add(String sum,String type,String level,String style,String size,String ps){
+    public Map add(String sum,String type,String music_name,String musicer){
         Map<String,String> map=new HashMap<String,String>();
         map.put("sum",sum);
         map.put("type",type);
-        map.put("level",level);
-        map.put("style",style);
-        map.put("size",size);
-        map.put("ps",ps);
+        map.put("music_name",music_name);
+        map.put("musicer",musicer);
         if(canteenService.selectBysum(map)!=null){
             map.put("errorMsg","该房间号已存在，请更换！");
             return map;
@@ -71,15 +67,13 @@ public class CanteenController {
 
     @RequestMapping("/edit")
     @ResponseBody
-    public Map edit(String id,String sum,String type,String level,String style,String size,String ps){
+    public Map edit(String id,String sum,String type,String music_name,String musicer){
         Map<String,String> map=new HashMap<String,String>();
         map.put("id",id);
         map.put("sum",sum);
         map.put("type",type);
-        map.put("level",level);
-        map.put("style",style);
-        map.put("size",size);
-        map.put("ps",ps);
+        map.put("music_name",music_name);
+        map.put("musicer",musicer);
         int i=canteenService.edit(map);
         if(i==1){
             map.put("success",i+"");

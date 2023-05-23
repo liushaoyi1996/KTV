@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS `canteen`;
 CREATE TABLE `canteen`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `sum` varchar(4) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '房间号码',
-  `type` int NULL DEFAULT NULL COMMENT '餐厅类型0小1中2大3小宴会4大宴会',
+  `type` int NULL DEFAULT NULL COMMENT '歌曲类型0小1中2大3小宴会4大宴会',
   `level` int NULL DEFAULT NULL COMMENT '等级0经济1普通2商务3豪华',
   `style` int NULL DEFAULT NULL COMMENT '装饰类型0普通1中式2欧式3典雅4简约5奢华',
   `size` int NULL DEFAULT NULL,
