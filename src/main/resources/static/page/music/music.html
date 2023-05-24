@@ -19,13 +19,13 @@
 		}
 	</style>
 	<script type="text/javascript">
-        function newKefang(){
+        function newMusic(){
             $('#dlg').dialog('open').dialog('setTitle','添加歌曲');
             $('#fm').form('clear');
             url = 'http://localhost:8080/canteen/add';
             var row = $('#dg').datagrid('getSelected');
         }
-		function editKefang() {
+		function editMusic() {
 			var row = $('#grid').datagrid('getSelected');
 			if (row){
 				$('#dlg1').dialog('open').dialog('setTitle','修改歌曲信息');
@@ -119,40 +119,40 @@
                 }
             });
         }
-        function destroyKefang(){
+        function destroyMusic(){
             var row = $('#grid').datagrid('getSelected');
-            // if (row){
-            //     $.messager.confirm('Confirm','确定删除吗？',function(r){
-            //         if (r){
-            //             $.post('http://localhost:8080/canteen/delete',{id:row.id},function(result){
-            //                 if (result.success=="1"){
-            //                     $.messager.show({    // show error message
-            //                         title: '提示',
-            //                         msg: '删除成功'
-            //                     });
-            //                     $('#grid').datagrid('clearSelections');
-            //                     $('#grid').datagrid('reload');    // reload the user data
-			//
-            //                 } else {
-            //                     $.messager.show({    // show error message
-            //                         title: 'Error',
-            //                         msg: result.errorMsg
-            //                     });
-            //                 }
-            //             },'json');
-            //         }
-            //     });
-			//
-            // }else{
-            //     $.messager.show({    // show error message
-            //         title: '提示',
-            //         msg: '请选择一条数据！'
-            //     });
-            // }
+            if (row){
+                $.messager.confirm('Confirm','确定删除吗？',function(r){
+                    if (r){
+                        $.post('http://localhost:8080/canteen/delete',{id:row.id},function(result){
+                            if (result.success=="1"){
+                                $.messager.show({    // show error message
+                                    title: '提示',
+                                    msg: '删除成功'
+                                });
+                                $('#grid').datagrid('clearSelections');
+                                $('#grid').datagrid('reload');    // reload the user data
+
+                            } else {
+                                $.messager.show({    // show error message
+                                    title: 'Error',
+                                    msg: result.errorMsg
+                                });
+                            }
+                        },'json');
+                    }
+                });
+
+            }else{
+                $.messager.show({    // show error message
+                    title: '提示',
+                    msg: '请选择一条数据！'
+                });
+            }
         }
 
         $(function(){
-            $('.easyui-textbox').numberbox({
+            $('.num').numberbox({
                 min:0,
                 precision:0
             });
@@ -227,9 +227,9 @@
 <body>
 <div>
 	<div id="toolbar">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newKefang()">添加</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editKefang()">修改</a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyKefang()">删除</a><br>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newMusic()">添加</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMusic()">修改</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMusic()">删除</a><br>
 		歌曲号：<input class="easyui-textbox" id="sum" style="width:100px">
 		歌曲类型：
 		<select class="easyui-combobox" editable="false" id="type" data-options="panelHeight:'auto'"   style="width:120px">
