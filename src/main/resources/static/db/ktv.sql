@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : local_mysql8
+ Source Server         : local_mysql8.0（3306）
  Source Server Type    : MySQL
  Source Server Version : 80030
- Source Host           : localhost:3307
+ Source Host           : localhost:3306
  Source Schema         : ktv
 
  Target Server Type    : MySQL
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 23/05/2023 17:49:49
+ Date: 24/05/2023 08:12:47
 */
 
 SET NAMES utf8mb4;
@@ -37,19 +37,19 @@ INSERT INTO `admin` VALUES ('admin', 'admin');
 DROP TABLE IF EXISTS `canteen`;
 CREATE TABLE `canteen`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `sum` varchar(4) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '房间号码',
-  `type` int NULL DEFAULT NULL COMMENT '歌曲类型0小1中2大3小宴会4大宴会',
-  `level` int NULL DEFAULT NULL COMMENT '等级0经济1普通2商务3豪华',
-  `style` int NULL DEFAULT NULL COMMENT '装饰类型0普通1中式2欧式3典雅4简约5奢华',
-  `size` int NULL DEFAULT NULL,
-  `ps` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `sum` varchar(4) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '歌曲编号',
+  `type` int NULL DEFAULT NULL COMMENT '音乐类型0流行歌曲1其他',
+  `music_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '歌曲名称',
+  `musicer` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '歌手',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of canteen
 -- ----------------------------
-INSERT INTO `canteen` VALUES (5, '9998', 1, 1, 1, 5, '5');
+INSERT INTO `canteen` VALUES (5, '9998', 1, '1411', '1112');
+INSERT INTO `canteen` VALUES (6, '9997', 1, '1110', '1122');
+INSERT INTO `canteen` VALUES (8, '5', 0, '5', '7');
 
 -- ----------------------------
 -- Table structure for carte
@@ -127,20 +127,18 @@ CREATE TABLE `indent`  (
   `number` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '顾客身份证号码',
   `phone` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '顾客手机号',
   `reserve_day` date NULL DEFAULT NULL COMMENT '预定时间',
-  `check_day1` date NULL DEFAULT NULL COMMENT '入住日期',
-  `check_day2` date NULL DEFAULT NULL COMMENT '离开日期',
+  `creat_time` date NULL DEFAULT NULL COMMENT '创建时间',
   `money` varchar(12) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '押金',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of indent
 -- ----------------------------
-INSERT INTO `indent` VALUES (21, '1001', '张大炮', '231', '321', '2021-03-16', NULL, NULL, '051');
-INSERT INTO `indent` VALUES (22, '5000', '111', '222', '1', '2021-03-01', NULL, NULL, '551');
-INSERT INTO `indent` VALUES (23, '101', '111', '10', '111', '2023-05-03', NULL, NULL, '1111');
-INSERT INTO `indent` VALUES (24, '1234', '111', '111', '111', NULL, NULL, NULL, '11');
-INSERT INTO `indent` VALUES (25, '123', '123', '123', '123', NULL, NULL, NULL, '123');
+INSERT INTO `indent` VALUES (26, '1110', '111', '11', '0101', '2023-05-08', NULL, '111');
+INSERT INTO `indent` VALUES (28, '1122', '1122', '1122', '1122', '2023-05-23', NULL, '11\0');
+INSERT INTO `indent` VALUES (29, '1141', '11', '11', '11', NULL, '2023-05-23', '11');
+INSERT INTO `indent` VALUES (30, '111', '111', '1100', '10101', '2023-05-24', '2023-05-23', '101');
 
 -- ----------------------------
 -- Table structure for kefang
@@ -188,9 +186,7 @@ CREATE TABLE `person`  (
 INSERT INTO `person` VALUES (2, '10', '0', '11', '0', '5', '0', '2021-01-01', '5');
 INSERT INTO `person` VALUES (4, '啊', '0', '100', '520', '3', '1', '2021-03-11', '5');
 INSERT INTO `person` VALUES (14, '啊', '0', '', '', '0', '0', '2021-03-21', '6');
-INSERT INTO `person` VALUES (15, 'a', '', '111', '', '', '', '2021-03-21', '');
 INSERT INTO `person` VALUES (16, '99', '0', '9', '9', '0', '3', '2021-03-02', '99');
-INSERT INTO `person` VALUES (18, '1111', '', '', '', '', '1', NULL, '');
 INSERT INTO `person` VALUES (19, '11', '0', '11', '11', '6', '1', '2023-05-24', '11');
 
 -- ----------------------------
@@ -208,17 +204,15 @@ CREATE TABLE `reserve`  (
   `money` varchar(12) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '押金',
   `status` varchar(4) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT '' COMMENT '入住状态0/1',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of reserve
 -- ----------------------------
-INSERT INTO `reserve` VALUES (2, '1001', '张大炮', '231', '321', '2021-03-16', '2021-03-16', '051', '');
-INSERT INTO `reserve` VALUES (3, '5000', '111', '222', '1', '2021-03-01', '2021-03-01', '551', '1');
-INSERT INTO `reserve` VALUES (10, '111', '111', '1100', '10101', '2023-05-24', '2023-05-24', '101', '\0');
-INSERT INTO `reserve` VALUES (11, '1122', '1122', '1122', '1122', '2023-05-23', '2023-05-23', '11\0', '');
+INSERT INTO `reserve` VALUES (10, '111', '111', '1100', '10101', '2023-05-24', '2023-05-24', '101', '1');
+INSERT INTO `reserve` VALUES (11, '1122', '1122', '1122', '1122', '2023-05-23', '2023-05-23', '11\0', '1');
 INSERT INTO `reserve` VALUES (13, '101', '111', '10', '111', '2023-05-03', '2023-05-03', '1111', '1');
-INSERT INTO `reserve` VALUES (14, '1110', '111', '11', '0101', '2023-05-08', '2023-05-08', '111', '');
+INSERT INTO `reserve` VALUES (14, '1110', '111', '11', '0101', '2023-05-08', '2023-05-08', '111', '1');
 
 -- ----------------------------
 -- Table structure for user
@@ -238,5 +232,6 @@ INSERT INTO `user` VALUES (1, '1', '1');
 INSERT INTO `user` VALUES (2, '2', '2');
 INSERT INTO `user` VALUES (3, '3', '3');
 INSERT INTO `user` VALUES (4, '111', '111');
+INSERT INTO `user` VALUES (5, '772', '772');
 
 SET FOREIGN_KEY_CHECKS = 1;
