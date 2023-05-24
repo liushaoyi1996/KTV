@@ -1,10 +1,10 @@
-//package com.new_jiudian;
+//package com.new_ktv;
 //
 //import org.junit.jupiter.api.Test;
 //import org.springframework.boot.test.context.SpringBootTest;
 //
 //@SpringBootTest
-//class NewJiudianApplicationTests {
+//class KtvApplicationTests {
 //
 //    @Test
 //    void contextLoads() {
