@@ -69,7 +69,7 @@
     <div class="define-head">
         <div class="define-logo">
             <div id="LoginTopLine">KTV管理系统</div>
-            <div id="xinxi"> <div id="gly">管理员：</div><div id="user"></div>
+            <div id="xinxi"> <div id="gly"> 用户：</div><div id="user"></div>
                 <div id="tc" onclick="tc()">退出</div>
             </div>
 
@@ -131,22 +131,11 @@
                 iconCls: 'icon-more',
                 state: 'open',
                 children: [{
-                    text: '顾客信息管理',
-                    url: 'page/client/client.html',
+                    text: '订购包间',
+                    url: 'page/indent/liji.html',
                 }, {
-                    text: '预定信息管理',
-                    url: 'page/reserve/reserve.html',
-                }, {
-                    text: '订单信息管理',
-                    url: 'page/indent/indent.html',
-                    children: [{
-                        text: '订单信息一览',
-                        url: 'page/indent/indent.html',
-                    }, {
-                        text: '立即开通包间',
-                        url: 'page/indent/liji.html',
-                    }]
-
+                    text: '预定包间',
+                    url: 'page/reserve/liji.html',
                 }]
             }],
             onSelect: onSideMenuSelect,

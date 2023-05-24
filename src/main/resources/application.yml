@@ -4,7 +4,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://localhost:3306/ktv?useUnicode=true&amp&serverTimezone=UTC&characterEncoding=utf8
+      url: jdbc:mysql://localhost:3307/ktv?useUnicode=true&amp&serverTimezone=UTC&characterEncoding=utf8
       driver-class-name: com.mysql.cj.jdbc.Driver
 #      driver-class-name: com.mysql.jdbc.Driver
       username: root
@@ -18,6 +18,4 @@ logging:
   file:
     path:../logs/spring-boot-hello.log
   level.org.springframework.web: DEBUG
-#文件上传目录
-file.upload.url: E:/test
 

@@ -70,7 +70,7 @@
         <div class="define-logo">
             <div id="LoginTopLine">KTV管理系统</div>
             <div id="xinxi">
-                <div id="gly">用户：</div>
+                <div id="gly">管理员：</div>
                 <div id="user"></div>
                 <div id="tc" onclick="tc()">退出</div>
             </div>
@@ -141,6 +141,13 @@
                 }, {
                     text: '菜单信息管理',
                     url: 'page/carte/carte.html',
+                    // children: [{
+                    //     text: '菜单信息管理',
+                    //     url: 'page/carte/carte.html',
+                    // }, {
+                    //     text: '立即点餐',
+                    //     url: 'page/carte/liji.html',
+                    // }]
                 }, {
                     text: '顾客信息管理',
                     url: 'page/client/client.html',
@@ -151,10 +158,10 @@
                     text: '订单信息管理',
                     url: 'page/indent/indent.html',
                     children: [{
-                        text: '订单信息一览',
+                        text: '包间订单一览',
                         url: 'page/indent/indent.html',
                     }, {
-                        text: '立即开通包间',
+                        text: '开通包间订单',
                         url: 'page/indent/liji.html',
                     }]
 
